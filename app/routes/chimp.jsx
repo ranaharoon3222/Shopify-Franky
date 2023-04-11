@@ -1,4 +1,5 @@
 export const action = async ({request}) => {
+  if (request.method !== 'POST') return '';
   try {
     let data = await request.json();
     const res = await fetch(
@@ -18,4 +19,8 @@ export const action = async ({request}) => {
   } catch (error) {
     console.error(error);
   }
+};
+
+export const loader = async () => {
+  return 'Hello Granky';
 };
